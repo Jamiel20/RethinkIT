@@ -1,0 +1,58 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+
+  <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+  
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10 justify-content-center align-items-center p-2 m-0">
+
+    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Login
+    </button>
+
+  </div>
+
+  <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+  
+  </div>
+  
+</nav>
+
+<div>
+    
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="email" class="form-control" #email placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control" #password placeholder="Password" aria-label="Password">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" data-bs-dismiss="modal" (click)="LogIn(email.value, password.value)" class="btn btn-primary">Login</button>
+
+                    <div class="input-group">
+                        <p>Doesn't have an account?</p>&nbsp;<p class="link text-warning" routerLink="/register" data-bs-dismiss="modal" >Register</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

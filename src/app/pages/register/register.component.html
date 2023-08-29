@@ -1,0 +1,78 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+
+    <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+    
+    </div>
+  
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10 justify-content-center align-items-center p-2 m-0">
+  
+      <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Register
+      </button>
+  
+    </div>
+  
+    <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+    
+    </div>
+    
+</nav>
+  
+<div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" class="form-control" #username placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                      <input type="text" class="form-control" #email placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" class="form-control" #password placeholder="Password" aria-label="Password">
+                    </div>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock-fill"></i></span>
+                      <input type="password" class="form-control" #cpassword placeholder="Confirm Password" aria-label="Password">
+                    </div>
+
+                    <div *ngIf="showpasserror" class="alert alert-danger" role="alert">
+                      Password did not match!
+                    </div>
+
+                    <div *ngIf="showblank" class="alert alert-danger" role="alert">
+                      Please fill all the blanks!
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" (click)="Register(username.value, email.value, password.value, cpassword.value)" class="btn btn-warning">Register</button>
+
+                    <div class="input-group">
+                        <p>Already have an account?</p>&nbsp;<p class="link text-primary" routerLink="/login" data-bs-dismiss="modal">Login</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  
+  

@@ -1,0 +1,259 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+
+    <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+    
+    </div>
+  
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10 justify-content-center align-items-center p-2 m-0">
+
+        <button type="button" class="btn btn-success float-start" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Create New Post
+        </button>
+
+        <button type="button" class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop5">
+            Logout
+        </button>
+          
+  
+    </div>
+  
+    <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+    
+    </div>
+    
+</nav>
+
+
+<div class="row">
+
+    <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+        
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 col-xxl-10 justify-content-center align-items-center m-0">
+
+    
+        <div class="alert alert-success m-2" role="alert">
+            Welcome {{ user }}
+        </div>
+
+        
+    <div class="m-2">
+
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Posts</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My Posts</button>
+            </div>
+        </nav>
+        
+        <div class="tab-content p-2" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+                <div class="card m-2" *ngFor="let item of data">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ item.username }} . {{ item.datetime | date2 }}</h6>
+                        <p class="card-text">{{ item.content }}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+
+                <div class="card m-2" *ngFor="let item2 of data2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item2.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ item2.username }} . {{ item2.datetime | date2 }}</h6>
+                        <p class="card-text">{{ item2.content }}</p>
+                        <button type="button"(click)="Update(item2.id, item2.title, item2.content)" class="btn btn-primary float-end ms-2"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                            Update
+                        </button>
+                        <button type="button" (click)="Delete(item2.id)" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+            
+
+        </div>
+
+        <div class="col-lg-1 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center">
+
+    </div>
+
+</div>
+
+<!-- <div class="mx-5 my-2">
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Posts</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My Posts</button>
+        </div>
+    </nav>
+      
+    <div class="tab-content p-2" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+            <div class="card m-2" *ngFor="let item of data">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ item.username }} . {{ item.datetime }}</h6>
+                    <p class="card-text">{{ item.content }}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+
+            <div class="card m-2" *ngFor="let item2 of data2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item2.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted fst-italic">{{ item2.username }} . {{ item2.datetime }}</h6>
+                    <p class="card-text">{{ item2.content }}</p>
+                    <button type="button"(click)="Update(item2.id, item2.title, item2.content)" class="btn btn-primary float-end"  data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                        Update
+                    </button>
+                    <button type="button" (click)="Delete(item2.id)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                        Delete
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div> -->
+  
+<div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Create a Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-pen-fill"></i></span>
+                        <input type="text" class="form-control" #title placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-pen-fill"></i></span>
+                        <textarea class="form-control" #content placeholder="Content" aria-label="Content"></textarea>
+                    </div>
+
+                    <div *ngIf="showblank" class="alert alert-danger" role="alert">
+                        Please fill all the blanks!
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" (click)="Post(title.value, content.value)" class="btn btn-success">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Update a Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-pen-fill"></i></span>
+                        <input type="text" class="form-control" [value]="ttl" #utitle placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-pen-fill"></i></span>
+                        <textarea class="form-control" [value]="cnt" #ucontent placeholder="Content" aria-label="Content"></textarea>
+                    </div>
+
+                    <div *ngIf="showblank2" class="alert alert-danger" role="alert">
+                        Please fill all the blanks!
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" (click)="PostUpdate(utitle.value, ucontent.value)" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  
+
+<div>
+
+    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete a Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    Do you want to delete this post?
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" data-bs-dismiss="modal" (click)="PostDelete()" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+
+    <div class="modal fade" id="staticBackdrop5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    Do you want to Logout?
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" data-bs-dismiss="modal" (click)="Logout()" class="btn btn-warning">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  
+  
